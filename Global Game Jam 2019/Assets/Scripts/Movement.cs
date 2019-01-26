@@ -35,6 +35,19 @@ namespace Assets.Scripts
             currentSpeed = 0;
         }
 
+        private void FixedUpdate()
+        {
+            if (Input.GetAxis("Horizontal") != 0)
+            {
+                if (rigidBody.velocity.x == 0)
+                {
+                    rigidBody.AddForce(new Vector2(rigidBody.velocity.x + startingSpeed * Input.GetAxis("Horizontal"), 0));
+                }
+                //transform.Translate(new Vector3(speed * Input.GetAxis("Horizontal"), 0, 0));
+                rigidBody.AddForce(Vector2.right * speed * Input.GetAxis("Horizontal"));
+            }
+        }
+
         // Update is called once per frame
         void Update()
         {
@@ -44,12 +57,7 @@ namespace Assets.Scripts
             if (Input.GetAxis("Horizontal") != 0)
             {
                 moving = true;
-                if (rigidBody.velocity.x==0)
-                {
-                    rigidBody.AddForce(new Vector2(rigidBody.velocity.x + startingSpeed* Input.GetAxis("Horizontal"), 0));
-                }
-                //transform.Translate(new Vector3(speed * Input.GetAxis("Horizontal"), 0, 0));
-                rigidBody.AddForce(Vector2.right*speed* Input.GetAxis("Horizontal"));
+                
             }
             else
             {
