@@ -9,6 +9,7 @@ namespace Assets.Scripts
     {
 
         public float speed;
+        public float startingSpeed;
         public float jumpStrength;
         
 
@@ -32,8 +33,24 @@ namespace Assets.Scripts
             //horizontal movement
             if (Input.GetAxis("Horizontal") != 0)
             {
-                transform.Translate(new Vector3(speed * Input.GetAxis("Horizontal"), 0, 0));
-                //rigidBody.AddForce(Vector2.right*speed* Input.GetAxis("Horizontal"));
+                if(rigidBody.velocity.x==0)
+                {
+                    rigidBody.AddForce(new Vector2(rigidBody.velocity.x + startingSpeed* Input.GetAxis("Horizontal"), 0));
+                }
+                //transform.Translate(new Vector3(speed * Input.GetAxis("Horizontal"), 0, 0));
+                rigidBody.AddForce(Vector2.right*speed* Input.GetAxis("Horizontal"));
+            }
+            else
+            {
+                if (grounded)
+                {
+                    if (rigidBody.velocity.x > 0)
+                    {
+                        rigidBody.velocity = new Vector2(Mathf.Lerp(rigidBody.velocity.x, 0, 1 / rigidBody.velocity.x*0.75f), rigidBody.velocity.y);
+                    }
+                    else
+                        rigidBody.velocity = Vector2.up * rigidBody.velocity.y;
+                }
             }
 
             //jump
@@ -55,22 +72,20 @@ namespace Assets.Scripts
         /// When the character enters the trigger of an interactable 
         /// </summary>
         /// <param name="collision"></param>
-        void OnTriggerEnter2D(Collider2D collision)
+        private void OnTriggerEnter2D(Collider2D collision)
         {
             if (collision.CompareTag("Interactable"))
                 collidingObject = null;
+            else if (collision.CompareTag("Floor"))
+                grounded = true;
         }
 
-        void OnTriggerExit2D(Collider2D collision)
+        private void OnTriggerExit2D(Collider2D collision)
         {
             if (collision.CompareTag("Interactable"))
                 collidingObject = collision.gameObject.GetComponent<InteractableObject>();
-        }
-
-        private void OnCollisionEnter2D(Collision2D collision)
-        {
-            if (collision.transform.CompareTag("Floor"))
-                grounded = true;
+            else if (collision.CompareTag("Floor"))
+                grounded = false;
         }
     }
 }
