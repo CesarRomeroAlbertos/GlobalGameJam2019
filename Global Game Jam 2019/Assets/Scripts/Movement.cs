@@ -21,6 +21,9 @@ namespace Assets.Scripts
 
         public bool grounded;
 
+        Vector3 lastPosition;
+        public float currentSpeed;
+
         // Start is called before the first frame update
         void Start()
         {
@@ -28,15 +31,19 @@ namespace Assets.Scripts
             collidingObject = null;
             grounded = true;
             anim = GetComponent<Animator>();
+            lastPosition = transform.position;
+            currentSpeed = 0;
         }
 
         // Update is called once per frame
         void Update()
         {
+            bool moving = false;
             //horizontal movement
             if (Input.GetAxis("Horizontal") != 0)
             {
-                if(rigidBody.velocity.x==0)
+                moving = true;
+                if (rigidBody.velocity.x==0)
                 {
                     rigidBody.AddForce(new Vector2(rigidBody.velocity.x + startingSpeed* Input.GetAxis("Horizontal"), 0));
                 }
@@ -60,7 +67,7 @@ namespace Assets.Scripts
             if (Input.GetButtonDown("Jump") && grounded)
             {
                 rigidBody.AddForce(jumpStrength * Vector2.up);
-                grounded = false;
+                //grounded = false;
             }
 
             //interaction
@@ -70,12 +77,17 @@ namespace Assets.Scripts
                     collidingObject.Interact();
             }
 
+            currentSpeed = transform.position.x - lastPosition.x;
+
+            lastPosition = transform.position;
+
             anim.SetFloat("velocity", rigidBody.velocity.x);
             anim.SetFloat("speed", Mathf.Abs(rigidBody.velocity.x));
             anim.SetBool("grounded", grounded);
-
-            GetComponent<SpriteRenderer>().flipX = rigidBody.velocity.x < 0;
-
+            if (moving && Mathf.Abs(rigidBody.velocity.x)>0.1)
+            {
+                GetComponent<SpriteRenderer>().flipX = rigidBody.velocity.x < 0;
+            }
         }
 
         /// <summary>
