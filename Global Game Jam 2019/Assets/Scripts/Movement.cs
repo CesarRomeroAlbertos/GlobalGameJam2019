@@ -101,7 +101,7 @@ namespace Assets.Scripts
         private void OnTriggerEnter2D(Collider2D collision)
         {
             if (collision.CompareTag("Interactable"))
-                collidingObject = null;
+                collidingObject = collision.gameObject.GetComponent<InteractableObject>();
             else if (collision.CompareTag("Floor"))
                 grounded = true;
         }
@@ -109,7 +109,7 @@ namespace Assets.Scripts
         private void OnTriggerExit2D(Collider2D collision)
         {
             if (collision.CompareTag("Interactable"))
-                collidingObject = collision.gameObject.GetComponent<InteractableObject>();
+                collidingObject = null;
             else if (collision.CompareTag("Floor"))
                 grounded = false;
         }

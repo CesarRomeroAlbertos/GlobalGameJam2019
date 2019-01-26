@@ -60,6 +60,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\AnimatorScripts\Follow.cs" />
+    <Compile Include="Assets\AnimatorScripts\RunAway.cs" />
+    <Compile Include="Assets\AnimatorScripts\Wait.cs" />
     <Compile Include="Assets\PostProcessing\Runtime\Attributes\GetSetAttribute.cs" />
     <Compile Include="Assets\PostProcessing\Runtime\Attributes\MinAttribute.cs" />
     <Compile Include="Assets\PostProcessing\Runtime\Attributes\TrackballAttribute.cs" />
@@ -107,6 +110,7 @@
     <Compile Include="Assets\PostProcessing\Utilities\CustomMotionTexture\ExampleWheelController.cs" />
     <Compile Include="Assets\Scripts\Abstract Classes\InteractableObject.cs" />
     <Compile Include="Assets\Scripts\CameraController.cs" />
+    <Compile Include="Assets\Scripts\FriendlyFox.cs" />
     <Compile Include="Assets\Scripts\LeafFall.cs" />
     <Compile Include="Assets\Scripts\LeafSpawner.cs" />
     <Compile Include="Assets\Scripts\Mov.cs" />
