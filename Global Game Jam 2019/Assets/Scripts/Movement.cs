@@ -51,6 +51,7 @@ namespace Assets.Scripts
         // Update is called once per frame
         void Update()
         {
+
             bool moving = false;
             //horizontal movement
             if (Input.GetAxis("Horizontal") != 0)
@@ -87,8 +88,6 @@ namespace Assets.Scripts
 
             currentSpeed = transform.position.x - lastPosition.x;
 
-            lastPosition = transform.position;
-
             anim.SetFloat("velocity", rigidBody.velocity.x);
             anim.SetFloat("speed", Mathf.Abs(rigidBody.velocity.x));
             anim.SetBool("grounded", grounded);
@@ -96,6 +95,8 @@ namespace Assets.Scripts
             {
                 GetComponent<SpriteRenderer>().flipX = rigidBody.velocity.x < 0;
             }
+
+            lastPosition = transform.position;
         }
 
         /// <summary>
