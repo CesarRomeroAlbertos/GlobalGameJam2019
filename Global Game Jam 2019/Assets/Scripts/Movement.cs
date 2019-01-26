@@ -7,15 +7,19 @@ namespace Assets.Scripts
 {
     public class Movement : MonoBehaviour
     {
-
+        [Header("Movement values")]
+        [Tooltip("Speed at which the character moves.")]
         public float speed;
+        [Tooltip("Speed at which the character accelerates when starting to move from idle.")]
         public float startingSpeed;
+        [Tooltip("Maximum horizontal velocity of the character")]
+        float maximumSpeed;
+        [Tooltip("Strength with which the character jumps")]
         public float jumpStrength;
         
 
         InteractableObject collidingObject;
         Rigidbody2D rigidBody;
-        public Collider2D groundCollider;
 
         bool grounded;
 
@@ -38,7 +42,8 @@ namespace Assets.Scripts
                     rigidBody.AddForce(new Vector2(rigidBody.velocity.x + startingSpeed* Input.GetAxis("Horizontal"), 0));
                 }
                 //transform.Translate(new Vector3(speed * Input.GetAxis("Horizontal"), 0, 0));
-                rigidBody.AddForce(Vector2.right*speed* Input.GetAxis("Horizontal"));
+                if(rigidBody.velocity.x < maximumSpeed)
+                    rigidBody.AddForce(Vector2.right*speed* Input.GetAxis("Horizontal") * Time.deltaTime);
             }
             else
             {
