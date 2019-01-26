@@ -75,20 +75,20 @@ namespace Assets.Scripts
 
             if (body.velocity.x > 0 && player.transform.position.x > leftBound)
             {
-                followPos += player.speed * Time.deltaTime * 1.5f;
+                followPos += player.currentSpeed * 1.5f;
             }
             else if (body.velocity.x > 0 && player.transform.position.x < leftBound)
             {
-                followPos += player.speed * Time.deltaTime;
+                followPos += player.currentSpeed;
             }
 
             if (body.velocity.x < 0 && player.transform.position.x < rightBound)
             {
-                followPos -= player.speed * Time.deltaTime * 1.5f;
+                followPos += player.currentSpeed * 1.5f;
             }
             else if (body.velocity.x < 0 && player.transform.position.x > rightBound)
             {
-                followPos -= player.speed * Time.deltaTime;
+                followPos += player.currentSpeed;
 
             }
 
