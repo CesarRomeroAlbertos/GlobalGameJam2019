@@ -15,9 +15,11 @@ namespace Assets.Scripts
 
         InteractableObject collidingObject;
         Rigidbody2D rigidBody;
+        Animator anim;
+
         public Collider2D groundCollider;
 
-        bool grounded;
+        public bool grounded;
 
         // Start is called before the first frame update
         void Start()
@@ -25,6 +27,7 @@ namespace Assets.Scripts
             rigidBody = GetComponent<Rigidbody2D>();
             collidingObject = null;
             grounded = true;
+            anim = GetComponent<Animator>();
         }
 
         // Update is called once per frame
@@ -66,6 +69,13 @@ namespace Assets.Scripts
                 if (collidingObject != null)
                     collidingObject.Interact();
             }
+
+            anim.SetFloat("velocity", rigidBody.velocity.x);
+            anim.SetFloat("speed", Mathf.Abs(rigidBody.velocity.x));
+            anim.SetBool("grounded", grounded);
+
+            GetComponent<SpriteRenderer>().flipX = rigidBody.velocity.x < 0;
+
         }
 
         /// <summary>
