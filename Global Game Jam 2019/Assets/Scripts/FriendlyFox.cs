@@ -10,9 +10,14 @@ public class FriendlyFox : MonoBehaviour
     bool run;
     Movement player;
 
+    Animator anim;
+    Rigidbody2D rigidBody;
+
     // Start is called before the first frame update
     void Start()
     {
+        anim = GetComponent<Animator>();
+        rigidBody = GetComponent<Rigidbody2D>();
         player = FindObjectOfType<Movement>();
         grounded = true;
         run = true;
@@ -40,6 +45,11 @@ public class FriendlyFox : MonoBehaviour
                     GetComponent<Rigidbody2D>().velocity.y);
             }
         }
+
+        anim.SetFloat("velocity", rigidBody.velocity.x);
+        anim.SetFloat("speed", Mathf.Abs(rigidBody.velocity.x));
+        anim.SetBool("grounded", grounded);
+        anim.SetFloat("verticalSpeed", rigidBody.velocity.y);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

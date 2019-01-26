@@ -200,5 +200,20 @@ PrefabInstance:
       propertyPath: jumpStrength
       value: 400
       objectReference: {fileID: 0}
+    - target: {fileID: 3457682693627835745, guid: 3dab0a2a2afa72240bf137a208760b14,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 48e3398bb6877d440b6da3d4e127f7c3, type: 2}
+    - target: {fileID: 3457682693761839901, guid: 3dab0a2a2afa72240bf137a208760b14,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3457682695185639014, guid: 3dab0a2a2afa72240bf137a208760b14,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3dab0a2a2afa72240bf137a208760b14, type: 3}
