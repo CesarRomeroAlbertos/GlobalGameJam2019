@@ -19,9 +19,9 @@ namespace Assets.Scripts
                     break;
                 case 10: parallax = 8;
                     break;
-                case 11: parallax = 11;
+                case 12: parallax = 4;
                     break;
-                case 12: parallax = 0.8f;
+                case 13: parallax = 1;
                     break;
             }
 
