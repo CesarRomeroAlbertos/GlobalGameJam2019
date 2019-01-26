@@ -44,12 +44,19 @@ namespace Assets.Scripts
             if (Input.GetAxis("Horizontal") != 0)
             {
                 moving = true;
-                if (rigidBody.velocity.x == 0)
+                if (grounded)
                 {
-                    rigidBody.AddForce(new Vector2(rigidBody.velocity.x + startingSpeed * Input.GetAxis("Horizontal"), 0));
+                    if (rigidBody.velocity.x == 0)
+                    {
+                        rigidBody.AddForce(new Vector2(rigidBody.velocity.x + startingSpeed * Input.GetAxis("Horizontal"), 0));
+                    }
+                    //transform.Translate(new Vector3(speed * Input.GetAxis("Horizontal"), 0, 0));
+                    rigidBody.AddForce(Vector2.right * speed * Input.GetAxis("Horizontal"));
                 }
-                //transform.Translate(new Vector3(speed * Input.GetAxis("Horizontal"), 0, 0));
-                rigidBody.AddForce(Vector2.right * speed * Input.GetAxis("Horizontal"));
+                else
+                {
+                    rigidBody.AddForce(Vector2.right * (speed/3) * Input.GetAxis("Horizontal"));
+                }
             }
             else
             {
@@ -76,6 +83,11 @@ namespace Assets.Scripts
             {
                 if (collidingObject != null)
                     collidingObject.Interact();
+            }
+
+            if(!grounded && rigidBody.velocity.y<=0)
+            {
+                rigidBody.AddForce(new Vector2(0,Physics.gravity.y * rigidBody.mass*3));
             }
 
             currentSpeed = transform.position.x - lastPosition.x;
