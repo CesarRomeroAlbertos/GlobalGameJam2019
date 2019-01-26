@@ -25,5 +25,8 @@ public class LeafSpawner : MonoBehaviour
         
     }
 
-
+    void addLeaf()
+    {
+        GameObject.Instantiate(leafPrefab, new Vector3(transform.position.x + Random.Range(-1f,1f), transform.position.y, transform.position.z), Quaternion.identity);
+    }
 }

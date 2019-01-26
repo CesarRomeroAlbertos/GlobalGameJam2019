@@ -83,6 +83,9 @@ namespace Assets.Scripts
             anim.SetFloat("velocity", rigidBody.velocity.x);
             anim.SetFloat("speed", Mathf.Abs(rigidBody.velocity.x));
             anim.SetBool("grounded", grounded);
+            anim.SetFloat("verticalSpeed", rigidBody.velocity.y);
+            if (Mathf.Abs(rigidBody.velocity.x) > 2) anim.SetBool("running", true); 
+            else anim.SetBool("running", false);
             if (moving && Mathf.Abs(rigidBody.velocity.x) > 0.1)
             {
                 GetComponent<SpriteRenderer>().flipX = rigidBody.velocity.x < 0;
