@@ -559,7 +559,7 @@ GameObject:
   - component: {fileID: 1322335811}
   - component: {fileID: 1322335810}
   - component: {fileID: 1322335809}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: floor
   m_TagString: Floor
   m_Icon: {fileID: 0}
@@ -651,6 +651,90 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &501365338264450188
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6711054063502365643, guid: e3ed3c0b3604ddb47bf7e03b9c05e934,
+        type: 3}
+      propertyPath: m_Name
+      value: Friendly fox
+      objectReference: {fileID: 0}
+    - target: {fileID: 3747676708721371785, guid: e3ed3c0b3604ddb47bf7e03b9c05e934,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.5201097
+      objectReference: {fileID: 0}
+    - target: {fileID: 3747676708721371785, guid: e3ed3c0b3604ddb47bf7e03b9c05e934,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.3189357
+      objectReference: {fileID: 0}
+    - target: {fileID: 3747676708721371785, guid: e3ed3c0b3604ddb47bf7e03b9c05e934,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3747676708721371785, guid: e3ed3c0b3604ddb47bf7e03b9c05e934,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3747676708721371785, guid: e3ed3c0b3604ddb47bf7e03b9c05e934,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3747676708721371785, guid: e3ed3c0b3604ddb47bf7e03b9c05e934,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3747676708721371785, guid: e3ed3c0b3604ddb47bf7e03b9c05e934,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3747676708721371785, guid: e3ed3c0b3604ddb47bf7e03b9c05e934,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3747676708721371785, guid: e3ed3c0b3604ddb47bf7e03b9c05e934,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3747676708721371785, guid: e3ed3c0b3604ddb47bf7e03b9c05e934,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3747676708721371785, guid: e3ed3c0b3604ddb47bf7e03b9c05e934,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 187952176343476305, guid: e3ed3c0b3604ddb47bf7e03b9c05e934,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.8018868
+      objectReference: {fileID: 0}
+    - target: {fileID: 187952176343476305, guid: e3ed3c0b3604ddb47bf7e03b9c05e934,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.374466
+      objectReference: {fileID: 0}
+    - target: {fileID: 187952176343476305, guid: e3ed3c0b3604ddb47bf7e03b9c05e934,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.74633205
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e3ed3c0b3604ddb47bf7e03b9c05e934, type: 3}
 --- !u!1001 &8570592838104480380
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -731,6 +815,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: player
+      objectReference: {fileID: 0}
+    - target: {fileID: 9089237820114660589, guid: be6507a12abbea745b5bfee15fd0e117,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 9089237820114660589, guid: be6507a12abbea745b5bfee15fd0e117,
+        type: 3}
+      propertyPath: m_Layer
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 9089237820114660595, guid: be6507a12abbea745b5bfee15fd0e117,
         type: 3}
