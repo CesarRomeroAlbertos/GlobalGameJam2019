@@ -22,7 +22,7 @@ namespace Assets.Scripts
         {
             Camera camera = GetComponent<Camera>();
 
-            transform.position = new Vector3(player.transform.position.x, player.transform.position.y, transform.position.z);
+            transform.position = new Vector3(player.transform.position.x, transform.position.y, transform.position.z);
 
             third = camera.orthographicSize * camera.aspect / 3;
 
