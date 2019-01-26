@@ -125,6 +125,7 @@ MonoBehaviour:
   speed: 15
   startingSpeed: 100
   jumpStrength: 250
+  splash: {fileID: 2882254281302045686, guid: f53d7641f23e24e4d9303e3c740205f2, type: 3}
   groundCollider: {fileID: 9089237820114660594}
   grounded: 0
   currentSpeed: 0

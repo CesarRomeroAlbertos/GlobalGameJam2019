@@ -16,6 +16,7 @@ namespace Assets.Scripts
         InteractableObject collidingObject;
         Rigidbody2D rigidBody;
         Animator anim;
+        public ParticleSystem splash;
 
         public Collider2D groundCollider;
 
@@ -115,7 +116,13 @@ namespace Assets.Scripts
             if (collision.CompareTag("Interactable"))
                 collidingObject = collision.gameObject.GetComponent<InteractableObject>();
             else if (collision.CompareTag("Floor"))
+            {
                 grounded = true;
+                if(!GetComponent<SpriteRenderer>().flipX)
+                    Instantiate(splash, transform.position - new Vector3(-1, 0.5f, 0), Quaternion.identity, this.transform);
+                else
+                    Instantiate(splash, transform.position - new Vector3(1, 0.5f, 0), Quaternion.identity, this.transform);
+            }
         }
 
         private void OnTriggerExit2D(Collider2D collision)
