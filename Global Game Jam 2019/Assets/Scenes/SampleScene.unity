@@ -126,7 +126,7 @@ GameObject:
   - component: {fileID: 128543393}
   m_Layer: 0
   m_Name: wall (1)
-  m_TagString: Floor
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -345,6 +345,7 @@ MonoBehaviour:
   jumpStrength: 250
   groundCollider: {fileID: 186612435}
   grounded: 0
+  currentSpeed: 0
 --- !u!61 &186612431
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -654,7 +655,7 @@ GameObject:
   - component: {fileID: 770501957}
   m_Layer: 0
   m_Name: wall
-  m_TagString: Floor
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

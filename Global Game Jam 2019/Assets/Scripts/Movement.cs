@@ -54,9 +54,9 @@ namespace Assets.Scripts
             {
                 if (grounded)
                 {
-                    if (rigidBody.velocity.x > 0)
+                    if (Mathf.Abs(rigidBody.velocity.x) > 0)
                     {
-                        rigidBody.velocity = new Vector2(Mathf.Lerp(rigidBody.velocity.x, 0, 1 / rigidBody.velocity.x*0.75f), rigidBody.velocity.y);
+                        rigidBody.velocity = new Vector2(Mathf.Lerp(rigidBody.velocity.x, 0, 1 / Mathf.Abs(rigidBody.velocity.x)*0.75f), rigidBody.velocity.y);
                     }
                     else
                         rigidBody.velocity = Vector2.up * rigidBody.velocity.y;
