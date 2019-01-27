@@ -28,6 +28,8 @@ namespace Assets.Scripts.AbstractClasses
             anim.SetBool("drink", false);
             anim.SetBool("dig", true);
             anim.SetBool("sniff", true);
+
+            player.soundManager.play("escarbar");
             anim.SetBool("hunted", false);
         }
     }

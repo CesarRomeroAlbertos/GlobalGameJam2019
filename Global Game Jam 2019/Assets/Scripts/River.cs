@@ -7,16 +7,26 @@ namespace Assets.Scripts.AbstractClasses
     public class River : InteractableObject
     {
         private Movement player;
+        AudioSource source;
 
         // Start is called before the first frame update
         void Start()
         {
-
+            source = this.GetComponent<AudioSource>();
+            player = FindObjectOfType<Movement>();
         }
 
         // Update is called once per frame
         void Update()
         {
+            if (Mathf.Abs(player.transform.position.x - transform.position.x) < 20)
+            {
+                if (!source.isPlaying)
+                    source.Play();
+            }
+            else
+                source.Stop();
+            
 
         }
 

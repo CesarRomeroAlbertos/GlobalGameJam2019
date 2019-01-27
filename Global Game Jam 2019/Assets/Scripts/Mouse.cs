@@ -35,6 +35,7 @@ public class Mouse : MonoBehaviour
             runTime = Time.time;
             running = true;
             anim.SetTrigger("Run");
+            fox.soundManager.play("raton");
         }
         else if (running)
         {

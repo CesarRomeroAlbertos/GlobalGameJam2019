@@ -72,6 +72,7 @@ public class FriendlyFox : MonoBehaviour
     {
         if (collision.CompareTag("Floor"))
         {
+            player.soundManager.play("salto");
             grounded = true;
             if (!GetComponent<SpriteRenderer>().flipX)
                 Instantiate(splash, transform.position - new Vector3(-1, 0.5f, 0), Quaternion.identity, this.transform);
