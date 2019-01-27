@@ -39,9 +39,9 @@ public class timePass : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (fox.transform.position.x > maxPos)
+        if (fox.transform.position.x < maxPos)
             maxPos = fox.transform.position.x;
-        advance = Mathf.Lerp(0, 1,maxPos/endPos);
+        advance = Mathf.Lerp(0, 1,Mathf.Abs(maxPos/endPos));
         tonemapping.neutralBlackIn = Mathf.Lerp(-0.006f,0.1f, advance);
         tonemapping.neutralWhiteIn = Mathf.Lerp(15.6f, 4.6f, advance);
         tonemapping.neutralWhiteOut = Mathf.Lerp(10, 4.31f, advance);

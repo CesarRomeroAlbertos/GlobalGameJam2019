@@ -129,9 +129,10 @@ GameObject:
   - component: {fileID: 9089237820114660588}
   - component: {fileID: 9089237820114660594}
   - component: {fileID: 9089237820114660593}
-  m_Layer: 0
+  - component: {fileID: 291799395291186852}
+  m_Layer: 14
   m_Name: player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -238,11 +239,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d23ab33301feb284db3402c16d5c1954, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 10
   startingSpeed: 100
-  jumpStrength: 250
-  maxSpeed: 3
-  maxJumpSpeed: 0
+  jumpStrength: 400
+  maxSpeed: 20
+  maxJumpSpeed: 5
   splash: {fileID: 2882254281302045686, guid: f53d7641f23e24e4d9303e3c740205f2, type: 3}
   groundCollider: {fileID: 9089237820114660594}
   grounded: 0
@@ -316,3 +317,16 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &291799395291186852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9089237820114660589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8124a6a80a7e6de4b9d6e9b40cb8fba7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zone: 0

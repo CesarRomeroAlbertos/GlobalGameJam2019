@@ -8,6 +8,7 @@ TagManager:
   - Interactable
   - FloorCheck
   - Leaf
+  - Zone
   layers:
   - Default
   - TransparentFX

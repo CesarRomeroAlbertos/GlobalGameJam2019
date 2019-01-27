@@ -31,7 +31,7 @@ public class LeafSpawner : MonoBehaviour
     IEnumerator addLeaf()
     {
         spawning = true;
-        leafList.Add(GameObject.Instantiate(leafPrefab, new Vector3(transform.position.x + Random.Range(-2f,2f), transform.position.y, transform.position.z), Quaternion.identity));
+        leafList.Add(GameObject.Instantiate(leafPrefab, new Vector3(transform.position.x + Random.Range(-5f,5f), transform.position.y, transform.position.z), Quaternion.identity));
         yield return new WaitForSeconds(spawnRatio);
         spawning = false;
         yield return null;

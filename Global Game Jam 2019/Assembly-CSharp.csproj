@@ -122,6 +122,7 @@
     <Compile Include="Assets\Scripts\Splash.cs" />
     <Compile Include="Assets\Scripts\StartScene.cs" />
     <Compile Include="Assets\Scripts\timePass.cs" />
+    <Compile Include="Assets\Scripts\ZoneChanger.cs" />
     <None Include="Assets\PostProcessing\Resources\Shaders\DepthOfField.shader" />
     <None Include="Assets\PostProcessing\Resources\Shaders\MotionBlur.cginc" />
     <None Include="Assets\PostProcessing\Resources\Shaders\Fog.shader" />
