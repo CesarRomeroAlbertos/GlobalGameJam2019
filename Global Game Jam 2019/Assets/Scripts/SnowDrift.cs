@@ -6,6 +6,7 @@ namespace Assets.Scripts.AbstractClasses
 {
     public class SnowDrift : InteractableObject
     {
+        public ParticleSystem splash;
         private Movement player;
         // Start is called before the first frame update
         void Start()
@@ -31,6 +32,10 @@ namespace Assets.Scripts.AbstractClasses
 
             player.soundManager.play("escarbar");
             anim.SetBool("hunted", false);
+
+            Instantiate(splash, transform.position, Quaternion.identity);
+            Destroy(gameObject);
+
         }
     }
 }
