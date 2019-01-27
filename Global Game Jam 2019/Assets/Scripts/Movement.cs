@@ -171,7 +171,6 @@ namespace Assets.Scripts
             }
             else if (collision.CompareTag("Leaf") && !grounded)
             {
-                Debug.Log("Porfa");
                 collision.gameObject.GetComponentInParent<LeafFall>().target = gameObject;
                 
             }
