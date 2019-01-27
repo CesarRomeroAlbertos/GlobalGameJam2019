@@ -352,6 +352,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4341350622545304607, guid: ee72a8869b574f841aba588aef0e20ab,
         type: 3}
+    - target: {fileID: 3457682694089047895, guid: 3dab0a2a2afa72240bf137a208760b14,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3457682694304781165, guid: 3dab0a2a2afa72240bf137a208760b14,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3dab0a2a2afa72240bf137a208760b14, type: 3}
 --- !u!1001 &5199357756177478086
