@@ -115,7 +115,7 @@ namespace Assets.Scripts
                 {
                     if (collidingObject != null)
                         collidingObject.Interact();
-                    if (grounded)
+                    else if (grounded)
                     {
                         anim.SetBool("sniff", true);
                         busy = true;
@@ -163,6 +163,11 @@ namespace Assets.Scripts
             if (anim.GetCurrentAnimatorStateInfo(0).IsName("Hunt"))
             {
                 anim.SetBool("hunted", false);
+                busy = false;
+            }
+            if (anim.GetCurrentAnimatorStateInfo(0).IsName("Drink"))
+            {
+                anim.SetBool("drink", false);
                 busy = false;
             }
 

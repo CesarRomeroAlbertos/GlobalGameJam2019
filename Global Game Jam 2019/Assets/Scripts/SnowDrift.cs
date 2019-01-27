@@ -25,9 +25,12 @@ namespace Assets.Scripts.AbstractClasses
             player = FindObjectOfType<Movement>();
             player.busy = true;
             Animator anim = player.GetComponent<Animator>();
+            anim.SetBool("drink", false);
+            anim.SetBool("dig", true);
             anim.SetBool("sniff", true);
 
             player.soundManager.play("escarbar");
+            anim.SetBool("hunted", false);
         }
     }
 }
