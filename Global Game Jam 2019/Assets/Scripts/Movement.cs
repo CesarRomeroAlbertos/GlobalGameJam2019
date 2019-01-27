@@ -108,6 +108,11 @@ namespace Assets.Scripts
                 {
                     if (collidingObject != null)
                         collidingObject.Interact();
+                    if (grounded)
+                    {
+                        anim.SetBool("sniff", true);
+                        busy = true;
+                    }
                 }
 
                 if (!grounded && rigidBody.velocity.y <= 0 && !busy)
@@ -138,9 +143,14 @@ namespace Assets.Scripts
 
             currentSpeed = transform.position.x - lastPosition.x;
 
-            if (anim.GetCurrentAnimatorStateInfo(0).IsName("Dig"))
+            if (anim.GetCurrentAnimatorStateInfo(0).IsName("Sniff"))
             {
                 anim.SetBool("sniff", false);
+                busy = false;
+            }
+            if (anim.GetCurrentAnimatorStateInfo(0).IsName("Dig"))
+            {
+                anim.SetBool("dig", false);
                 busy = false;
             }
             if (anim.GetCurrentAnimatorStateInfo(0).IsName("Hunt"))
