@@ -40,11 +40,10 @@ namespace Assets.Scripts
         void Update()
         {
 
-            bool moving = false;
+            
             //horizontal movement
             if (Input.GetAxis("Horizontal") != 0)
             {
-                moving = true;
                 if (grounded)
                 {
                     if (rigidBody.velocity.x == 0)
@@ -99,7 +98,7 @@ namespace Assets.Scripts
             anim.SetFloat("verticalSpeed", rigidBody.velocity.y);
             if (Mathf.Abs(rigidBody.velocity.x) > 2) anim.SetBool("running", true); 
             else anim.SetBool("running", false);
-            if (moving && Mathf.Abs(rigidBody.velocity.x) > 0.1)
+            if (Mathf.Abs(rigidBody.velocity.x) > 0.1)
             {
                 GetComponent<SpriteRenderer>().flipX = rigidBody.velocity.x < 0;
             }

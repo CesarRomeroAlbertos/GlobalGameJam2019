@@ -38,6 +38,11 @@ public class RunAway : StateMachineBehaviour
                 fox.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.right * speed *
                     -((player.transform.position.x - fox.transform.position.x) / Mathf.Abs(player.transform.position.x - fox.transform.position.x)));
             }
+            else
+            {
+                fox.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.right * (speed/3) *
+                    -((player.transform.position.x - fox.transform.position.x) / Mathf.Abs(player.transform.position.x - fox.transform.position.x)));
+            }
         }
         else
         {

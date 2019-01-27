@@ -13,6 +13,8 @@ public class FriendlyFox : MonoBehaviour
     Animator anim;
     Rigidbody2D rigidBody;
 
+    public ParticleSystem splash;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -46,6 +48,16 @@ public class FriendlyFox : MonoBehaviour
             }
         }
 
+        if (!grounded && rigidBody.velocity.y <= 0)
+        {
+            rigidBody.AddForce(new Vector2(0, Physics.gravity.y * rigidBody.mass * 3));
+        }
+
+        if (Mathf.Abs(rigidBody.velocity.x) > 0.1)
+        {
+            GetComponent<SpriteRenderer>().flipX = rigidBody.velocity.x < 0;
+        }
+
         anim.SetFloat("velocity", rigidBody.velocity.x);
         anim.SetFloat("speed", Mathf.Abs(rigidBody.velocity.x));
         anim.SetBool("grounded", grounded);
@@ -55,7 +67,13 @@ public class FriendlyFox : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Floor"))
+        {
             grounded = true;
+            if (!GetComponent<SpriteRenderer>().flipX)
+                Instantiate(splash, transform.position - new Vector3(-1, 0.5f, 0), Quaternion.identity, this.transform);
+            else
+                Instantiate(splash, transform.position - new Vector3(1, 0.5f, 0), Quaternion.identity, this.transform);
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
