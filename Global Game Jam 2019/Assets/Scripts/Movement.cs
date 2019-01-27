@@ -12,6 +12,7 @@ namespace Assets.Scripts
         public float startingSpeed;
         public float jumpStrength;
         public float maxSpeed;
+        public float maxJumpSpeed;
 
 
         InteractableObject collidingObject;
@@ -51,7 +52,7 @@ namespace Assets.Scripts
         {
             if (Mathf.Abs(rigidBody.velocity.x) >= maxSpeed)
             {
-                if (rigidBody.velocity.x < 0) rigidBody.velocity = new Vector2(-maxSpeed, rigidBody.velocity.y);
+                if (rigidBody.velocity.x < 0) rigidBody.velocity = new Vector2(Mathf.Lerp(-maxSpeed, rigidBody.velocity.x, 0.5f), rigidBody.velocity.y);
                 else rigidBody.velocity = new Vector2(Mathf.Lerp(maxSpeed, rigidBody.velocity.x,0.5f), rigidBody.velocity.y);
             }
         }
@@ -74,8 +75,13 @@ namespace Assets.Scripts
                     }
                     else
                     {
-                        rigidBody.AddForce(Vector2.right * (speed / 3) * Input.GetAxis("Horizontal"));
-                    }
+                        rigidBody.AddForce(Vector2.right * (speed) * Input.GetAxis("Horizontal"));
+                        if (Mathf.Abs(rigidBody.velocity.x) >= maxJumpSpeed)
+                        {
+                            if (rigidBody.velocity.x < 0) rigidBody.velocity = new Vector2(Mathf.Lerp(-maxJumpSpeed, rigidBody.velocity.x, 0.5f), rigidBody.velocity.y);
+                            else rigidBody.velocity = new Vector2(Mathf.Lerp(maxJumpSpeed, rigidBody.velocity.x, 0.5f), rigidBody.velocity.y);
+                        }
+                }
                 }
                 else if (!busy)
                 {
