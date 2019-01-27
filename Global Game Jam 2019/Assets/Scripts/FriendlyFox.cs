@@ -28,6 +28,10 @@ public class FriendlyFox : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(transform.position.y>=1.6f)
+        {
+            rigidBody.velocity = new Vector2(rigidBody.velocity.x, 0);
+        }
         if (Mathf.Abs(player.transform.position.x-transform.position.x)<1)
         {
             if (run)

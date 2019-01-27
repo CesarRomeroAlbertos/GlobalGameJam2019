@@ -37,7 +37,7 @@ namespace Assets.Scripts
         {
             rigidBody = GetComponent<Rigidbody2D>();
             collidingObject = null;
-            grounded = true;
+            grounded = false;
             anim = GetComponent<Animator>();
             lastPosition = transform.position;
             currentSpeed = 0;
@@ -199,6 +199,12 @@ namespace Assets.Scripts
             }
             else if (collision.CompareTag("Floor"))
                 grounded = false;
+        }
+
+        private void OnTriggerStay2D(Collider2D collision)
+        {
+            if (collision.CompareTag("Floor"))
+                grounded = true;
         }
     }
 }
