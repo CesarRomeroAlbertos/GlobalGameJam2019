@@ -24208,7 +24208,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1499686341}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.43, y: -1.95, z: 0}
+  m_LocalPosition: {x: 3.43, y: -2.31, z: 0}
   m_LocalScale: {x: 2, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -24223,7 +24223,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1499686341}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 21e2fbb5144b42f488f145156b1f9f6a, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -35290,6 +35290,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4341350622545304607, guid: ee72a8869b574f841aba588aef0e20ab,
         type: 3}
+    - target: {fileID: 6202543233465889232, guid: 3dab0a2a2afa72240bf137a208760b14,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3457682693627835748, guid: 3dab0a2a2afa72240bf137a208760b14,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -35335,10 +35340,35 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 2204495804872851800, guid: 3dab0a2a2afa72240bf137a208760b14,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 11.45
+      objectReference: {fileID: 0}
     - target: {fileID: 3457682694748353010, guid: 3dab0a2a2afa72240bf137a208760b14,
         type: 3}
       propertyPath: m_LocalPosition.x
       value: -9.72
+      objectReference: {fileID: 0}
+    - target: {fileID: 3457682694748353007, guid: 3dab0a2a2afa72240bf137a208760b14,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 21e2fbb5144b42f488f145156b1f9f6a, type: 2}
+    - target: {fileID: 3457682694748353005, guid: 3dab0a2a2afa72240bf137a208760b14,
+        type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3457682694748353005, guid: 3dab0a2a2afa72240bf137a208760b14,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3457682694748353011, guid: 3dab0a2a2afa72240bf137a208760b14,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 3.4098
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3dab0a2a2afa72240bf137a208760b14, type: 3}
@@ -35357,7 +35387,7 @@ PrefabInstance:
     - target: {fileID: 4455498966769232352, guid: c423f2faf0955854d9bf0c3fc761d205,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.87
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 4455498966769232352, guid: c423f2faf0955854d9bf0c3fc761d205,
         type: 3}
