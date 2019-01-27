@@ -117,6 +117,7 @@ namespace Assets.Scripts
                         collidingObject.Interact();
                     else if (grounded)
                     {
+                    soundManager.play("olfatear");
                         anim.SetBool("sniff", true);
                         busy = true;
                     }
