@@ -57,6 +57,12 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
+  - m_Name: Inactive
+    m_Type: 9
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 0}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Animations
@@ -94,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de8b4108fda341d4ca5b68687dd25224, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpStrength: 100
+  jumpStrength: 400
   startingSpeed: 15
   speed: 10
 --- !u!114 &114133772569923858
@@ -109,7 +115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e10daae77d444a4da493a51a3039e33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpStrength: 100
+  jumpStrength: 400
   startingSpeed: 15
   speed: 10
 --- !u!114 &114172173624998184
@@ -273,8 +279,8 @@ AnimatorStateTransition:
   - m_ConditionMode: 4
     m_ConditionEvent: speed
     m_EventTreshold: 0.1
-  - m_ConditionMode: 2
-    m_ConditionEvent: running
+  - m_ConditionMode: 1
+    m_ConditionEvent: grounded
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102277449125044616}
@@ -395,9 +401,6 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 2
-    m_ConditionEvent: grounded
-    m_EventTreshold: 0
   - m_ConditionMode: 4
     m_ConditionEvent: verticalSpeed
     m_EventTreshold: 0.2
@@ -428,6 +431,31 @@ AnimatorStateTransition:
     m_EventTreshold: 0.1
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102054948293153392}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 3
+  m_TransitionDuration: 0.25
+  m_TransitionOffset: 0
+  m_ExitTime: 0.75
+  m_HasExitTime: 0
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
+--- !u!1101 &1101816579593365816
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: Inactive
+    m_EventTreshold: 0
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: 1102851407086433470}
   m_Solo: 0
   m_Mute: 0
   m_IsExit: 0
@@ -801,6 +829,7 @@ AnimatorStateMachine:
   - {fileID: 1101455600891173408}
   - {fileID: 1101820411106958230}
   - {fileID: 1101676790303422258}
+  - {fileID: 1101816579593365816}
   m_EntryTransitions: []
   m_StateMachineTransitions: {}
   m_StateMachineBehaviours: []

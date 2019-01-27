@@ -44,9 +44,10 @@ public class Follow : StateMachineBehaviour
         {
             animator.SetTrigger("RunAway");
         }
-        if (Mathf.Abs(player.transform.position.y - fox.transform.position.y) > 1 && fox.grounded)
+        if (Mathf.Abs(player.transform.position.y - fox.transform.position.y - 1) > 1 && fox.grounded)
         {
             fox.gameObject.GetComponent<Rigidbody2D>().AddForce(jumpStrength * Vector2.up);
+            fox.grounded = false;
         }
     }
 
