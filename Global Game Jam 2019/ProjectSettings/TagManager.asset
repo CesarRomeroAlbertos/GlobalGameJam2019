@@ -7,7 +7,6 @@ TagManager:
   - Floor
   - Interactable
   - FloorCheck
-  - Leaf
   layers:
   - Default
   - TransparentFX
@@ -23,8 +22,8 @@ TagManager:
   - Background3
   - Foreground
   - Haze
-  - Leaf
-  - Head
+  - Player
+  - Friend
   - 
   - 
   - 

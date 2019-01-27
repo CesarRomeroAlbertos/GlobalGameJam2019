@@ -16,6 +16,7 @@ namespace Assets.Scripts
         InteractableObject collidingObject;
         Rigidbody2D rigidBody;
         Animator anim;
+        public ParticleSystem splash;
 
         public Collider2D groundCollider;
 
@@ -45,17 +46,23 @@ namespace Assets.Scripts
         void Update()
         {
 
-            bool moving = false;
+            
             //horizontal movement
             if (Input.GetAxis("Horizontal") != 0)
             {
-                moving = true;
-                if (rigidBody.velocity.x == 0)
+                if (grounded)
                 {
-                    rigidBody.AddForce(new Vector2(rigidBody.velocity.x + startingSpeed * Input.GetAxis("Horizontal"), 0));
+                    if (rigidBody.velocity.x == 0)
+                    {
+                        rigidBody.AddForce(new Vector2(rigidBody.velocity.x + startingSpeed * Input.GetAxis("Horizontal"), 0));
+                    }
+                    //transform.Translate(new Vector3(speed * Input.GetAxis("Horizontal"), 0, 0));
+                    rigidBody.AddForce(Vector2.right * speed * Input.GetAxis("Horizontal"));
                 }
-                //transform.Translate(new Vector3(speed * Input.GetAxis("Horizontal"), 0, 0));
-                rigidBody.AddForce(Vector2.right * speed * Input.GetAxis("Horizontal"));
+                else
+                {
+                    rigidBody.AddForce(Vector2.right * (speed/3) * Input.GetAxis("Horizontal"));
+                }
             }
             else
             {
@@ -84,6 +91,11 @@ namespace Assets.Scripts
                     collidingObject.Interact();
             }
 
+            if(!grounded && rigidBody.velocity.y<=0)
+            {
+                rigidBody.AddForce(new Vector2(0,Physics.gravity.y * rigidBody.mass*3));
+            }
+
             currentSpeed = transform.position.x - lastPosition.x;
 
             anim.SetFloat("velocity", rigidBody.velocity.x);
@@ -94,7 +106,7 @@ namespace Assets.Scripts
             else anim.SetBool("running", false);
             if (anim.GetCurrentAnimatorStateInfo(0).IsName("Sniff")) anim.SetBool("sniff", false);
             if (anim.GetCurrentAnimatorStateInfo(0).IsName("Hunt")) anim.SetBool("hunted", false);
-            if (moving && Mathf.Abs(rigidBody.velocity.x) > 0.1)
+            if (Mathf.Abs(rigidBody.velocity.x) > 0.1)
             {
                 GetComponent<SpriteRenderer>().flipX = rigidBody.velocity.x < 0;
                 if (GetComponent<SpriteRenderer>().flipX)
@@ -121,12 +133,18 @@ namespace Assets.Scripts
             if (collision.CompareTag("Interactable"))
                 collidingObject = collision.gameObject.GetComponent<InteractableObject>();
             else if (collision.CompareTag("Floor"))
+            {
                 grounded = true;
-
-            if (collision.CompareTag("Leaf") && !grounded)
+                if(!GetComponent<SpriteRenderer>().flipX)
+                    Instantiate(splash, transform.position - new Vector3(-1, 0.5f, 0), Quaternion.identity, this.transform);
+                else
+                    Instantiate(splash, transform.position - new Vector3(1, 0.5f, 0), Quaternion.identity, this.transform);
+            }
+            else if (collision.CompareTag("Leaf") && !grounded)
             {
                 Debug.Log("Porfa");
                 collision.gameObject.GetComponent<LeafFall>().target = gameObject;
+                
             }
         }
 

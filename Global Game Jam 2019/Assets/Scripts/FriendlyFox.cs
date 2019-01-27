@@ -10,9 +10,16 @@ public class FriendlyFox : MonoBehaviour
     bool run;
     Movement player;
 
+    Animator anim;
+    Rigidbody2D rigidBody;
+
+    public ParticleSystem splash;
+
     // Start is called before the first frame update
     void Start()
     {
+        anim = GetComponent<Animator>();
+        rigidBody = GetComponent<Rigidbody2D>();
         player = FindObjectOfType<Movement>();
         grounded = true;
         run = true;
@@ -40,12 +47,41 @@ public class FriendlyFox : MonoBehaviour
                     GetComponent<Rigidbody2D>().velocity.y);
             }
         }
+
+        if (!grounded && rigidBody.velocity.y <= 0)
+        {
+            rigidBody.AddForce(new Vector2(0, Physics.gravity.y * rigidBody.mass * 3));
+        }
+
+        if (Mathf.Abs(rigidBody.velocity.x) > 0.1)
+        {
+            GetComponent<SpriteRenderer>().flipX = rigidBody.velocity.x < 0;
+        }
+
+        anim.SetFloat("velocity", rigidBody.velocity.x);
+        anim.SetFloat("speed", Mathf.Abs(rigidBody.velocity.x));
+        anim.SetBool("grounded", grounded);
+        anim.SetFloat("verticalSpeed", rigidBody.velocity.y);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Floor"))
+        {
             grounded = true;
+            if (!GetComponent<SpriteRenderer>().flipX)
+                Instantiate(splash, transform.position - new Vector3(-1, 0.5f, 0), Quaternion.identity, this.transform);
+            else
+                Instantiate(splash, transform.position - new Vector3(1, 0.5f, 0), Quaternion.identity, this.transform);
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if(collision.CompareTag("Floor"))
+        {
+            grounded = true;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
