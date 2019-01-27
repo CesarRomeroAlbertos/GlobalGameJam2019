@@ -63,6 +63,7 @@
     <Compile Include="Assets\AnimatorScripts\Follow.cs" />
     <Compile Include="Assets\AnimatorScripts\RunAway.cs" />
     <Compile Include="Assets\AnimatorScripts\Wait.cs" />
+    <Compile Include="Assets\end.cs" />
     <Compile Include="Assets\FoxSoundManager.cs" />
     <Compile Include="Assets\PostProcessing\Runtime\Attributes\GetSetAttribute.cs" />
     <Compile Include="Assets\PostProcessing\Runtime\Attributes\MinAttribute.cs" />
@@ -123,6 +124,7 @@
     <Compile Include="Assets\Scripts\Splash.cs" />
     <Compile Include="Assets\Scripts\timePass.cs" />
     <Compile Include="Assets\Scripts\ZoneChanger.cs" />
+    <Compile Include="Assets\Transformation.cs" />
     <None Include="Assets\PostProcessing\Resources\Shaders\DepthOfField.shader" />
     <None Include="Assets\PostProcessing\Resources\Shaders\MotionBlur.cginc" />
     <None Include="Assets\PostProcessing\Resources\Shaders\Fog.shader" />

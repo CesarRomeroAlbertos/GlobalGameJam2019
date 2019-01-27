@@ -7,7 +7,7 @@ namespace Assets.Scripts
 {
     public class Movement : MonoBehaviour
     {
-
+        public bool human;
         public float speed;
         public float startingSpeed;
         public float jumpStrength;
@@ -36,6 +36,7 @@ namespace Assets.Scripts
         // Start is called before the first frame update
         void Start()
         {
+            human = false;
             rigidBody = GetComponent<Rigidbody2D>();
             collidingObject = null;
             grounded = false;
@@ -103,7 +104,7 @@ namespace Assets.Scripts
                 }
 
                 //jump
-                if (Input.GetButtonDown("Jump") && grounded && !busy)
+                if (Input.GetButtonDown("Jump") && grounded && !busy && !human)
                 {
                     rigidBody.AddForce(jumpStrength * Vector2.up);
                 

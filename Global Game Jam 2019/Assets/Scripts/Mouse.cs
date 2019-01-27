@@ -12,7 +12,6 @@ public class Mouse : MonoBehaviour
     float runTime;
     Animator anim;
     Camera cam;
-    public float widthThreshold;
 
     // Start is called before the first frame update
     void Start()
