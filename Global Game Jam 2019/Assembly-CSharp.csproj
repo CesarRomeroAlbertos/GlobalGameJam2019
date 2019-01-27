@@ -63,8 +63,6 @@
     <Compile Include="Assets\AnimatorScripts\Follow.cs" />
     <Compile Include="Assets\AnimatorScripts\RunAway.cs" />
     <Compile Include="Assets\AnimatorScripts\Wait.cs" />
-    <Compile Include="Assets\Burrow.cs" />
-    <Compile Include="Assets\Mouse.cs" />
     <Compile Include="Assets\PostProcessing\Runtime\Attributes\GetSetAttribute.cs" />
     <Compile Include="Assets\PostProcessing\Runtime\Attributes\MinAttribute.cs" />
     <Compile Include="Assets\PostProcessing\Runtime\Attributes\TrackballAttribute.cs" />
@@ -115,13 +113,14 @@
     <Compile Include="Assets\Scripts\FriendlyFox.cs" />
     <Compile Include="Assets\Scripts\LeafFall.cs" />
     <Compile Include="Assets\Scripts\LeafSpawner.cs" />
+    <Compile Include="Assets\Scripts\Mouse.cs" />
     <Compile Include="Assets\Scripts\Mov.cs" />
     <Compile Include="Assets\Scripts\Movement.cs" />
     <Compile Include="Assets\Scripts\ParallaxBG1.cs" />
     <Compile Include="Assets\Scripts\SnowDrift.cs" />
+    <Compile Include="Assets\Scripts\Splash.cs" />
     <Compile Include="Assets\Scripts\StartScene.cs" />
-    <Compile Include="Assets\Splash.cs" />
-    <Compile Include="Assets\timePass.cs" />
+    <Compile Include="Assets\Scripts\timePass.cs" />
     <None Include="Assets\PostProcessing\Resources\Shaders\DepthOfField.shader" />
     <None Include="Assets\PostProcessing\Resources\Shaders\MotionBlur.cginc" />
     <None Include="Assets\PostProcessing\Resources\Shaders\Fog.shader" />
