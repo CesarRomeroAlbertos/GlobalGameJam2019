@@ -26,6 +26,8 @@ namespace Assets.Scripts.AbstractClasses
             player.busy = true;
             Animator anim = player.GetComponent<Animator>();
             anim.SetBool("sniff", true);
+
+            player.soundManager.play("escarbar");
         }
     }
 }

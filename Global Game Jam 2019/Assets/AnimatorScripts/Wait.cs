@@ -23,10 +23,12 @@ public class Wait : StateMachineBehaviour
         if(Mathf.Abs(player.transform.position.x-fox.transform.position.x)> 30)
         {
             animator.SetTrigger("Inactive");
+            player.soundManager.play("zorro2");
         }
         if(Time.time-startTime > 2)
         {
             animator.SetTrigger("Follow");
+            player.soundManager.play("zorro1");
         }
     }
 

@@ -18,6 +18,7 @@ namespace Assets.Scripts
         InteractableObject collidingObject;
         Rigidbody2D rigidBody;
         Animator anim;
+        public FoxSoundManager soundManager;
         public ParticleSystem splash;
 
         public Collider2D groundCollider;
@@ -39,6 +40,7 @@ namespace Assets.Scripts
             collidingObject = null;
             grounded = false;
             anim = GetComponent<Animator>();
+            soundManager = GetComponent<FoxSoundManager>();
             lastPosition = transform.position;
             currentSpeed = 0;
 
@@ -66,6 +68,10 @@ namespace Assets.Scripts
                 {
                     if (grounded)
                     {
+                    if(!soundManager.source.isPlaying)
+                    {
+                        soundManager.play("andar");
+                    }
                         if (rigidBody.velocity.x == 0)
                         {
                             rigidBody.AddForce(new Vector2(rigidBody.velocity.x + startingSpeed * Input.GetAxis("Horizontal"), 0));
@@ -100,6 +106,7 @@ namespace Assets.Scripts
                 if (Input.GetButtonDown("Jump") && grounded && !busy)
                 {
                     rigidBody.AddForce(jumpStrength * Vector2.up);
+                
                     //grounded = false;
                 }
 
@@ -173,6 +180,7 @@ namespace Assets.Scripts
                 collidingObject = collision.gameObject.GetComponent<InteractableObject>();
             else if (collision.CompareTag("Floor"))
             {
+                soundManager.play("salto");
                 grounded = true;
                 if(!GetComponent<SpriteRenderer>().flipX)
                     Instantiate(splash, transform.position - new Vector3(-1, 0.5f, 0), Quaternion.identity, this.transform);

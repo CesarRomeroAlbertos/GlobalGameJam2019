@@ -63,6 +63,7 @@
     <Compile Include="Assets\AnimatorScripts\Follow.cs" />
     <Compile Include="Assets\AnimatorScripts\RunAway.cs" />
     <Compile Include="Assets\AnimatorScripts\Wait.cs" />
+    <Compile Include="Assets\FoxSoundManager.cs" />
     <Compile Include="Assets\PostProcessing\Runtime\Attributes\GetSetAttribute.cs" />
     <Compile Include="Assets\PostProcessing\Runtime\Attributes\MinAttribute.cs" />
     <Compile Include="Assets\PostProcessing\Runtime\Attributes\TrackballAttribute.cs" />
