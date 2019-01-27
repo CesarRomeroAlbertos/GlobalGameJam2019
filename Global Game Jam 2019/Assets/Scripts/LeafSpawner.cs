@@ -12,21 +12,34 @@ public class LeafSpawner : MonoBehaviour
     public List<GameObject> leafList;
     public int leafFloorCount;
 
+    public bool spawning;
+
     // Start is called before the first frame update
     void Start()
     {
         leafList = new List<GameObject>();
         leafFloorCount = 0;
+        spawning = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (!spawning) StartCoroutine(addLeaf());
     }
 
-    void addLeaf()
+    IEnumerator addLeaf()
     {
-        GameObject.Instantiate(leafPrefab, new Vector3(transform.position.x + Random.Range(-1f,1f), transform.position.y, transform.position.z), Quaternion.identity);
+        spawning = true;
+        leafList.Add(GameObject.Instantiate(leafPrefab, new Vector3(transform.position.x + Random.Range(-2f,2f), transform.position.y, transform.position.z), Quaternion.identity));
+        yield return new WaitForSeconds(spawnRatio);
+        spawning = false;
+        yield return null;
+    }
+
+    public void removeLeaf(GameObject leaf)
+    {
+        leafList.Remove(leaf);
+        Destroy(leaf);
     }
 }

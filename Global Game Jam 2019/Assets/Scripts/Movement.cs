@@ -24,6 +24,9 @@ namespace Assets.Scripts
         Vector3 lastPosition;
         public float currentSpeed;
 
+        public GameObject head1;
+        public GameObject head2;
+
         // Start is called before the first frame update
         void Start()
         {
@@ -33,6 +36,9 @@ namespace Assets.Scripts
             anim = GetComponent<Animator>();
             lastPosition = transform.position;
             currentSpeed = 0;
+
+            head1.SetActive(true);
+            head2.SetActive(false);
         }
 
         // Update is called once per frame
@@ -86,9 +92,21 @@ namespace Assets.Scripts
             anim.SetFloat("verticalSpeed", rigidBody.velocity.y);
             if (Mathf.Abs(rigidBody.velocity.x) > 2) anim.SetBool("running", true); 
             else anim.SetBool("running", false);
+            if (anim.GetCurrentAnimatorStateInfo(0).IsName("Sniff")) anim.SetBool("sniff", false);
+            if (anim.GetCurrentAnimatorStateInfo(0).IsName("Hunt")) anim.SetBool("hunted", false);
             if (moving && Mathf.Abs(rigidBody.velocity.x) > 0.1)
             {
                 GetComponent<SpriteRenderer>().flipX = rigidBody.velocity.x < 0;
+                if (GetComponent<SpriteRenderer>().flipX)
+                {
+                    head1.SetActive(false);
+                    head2.SetActive(true);
+                }
+                else
+                {
+                    head1.SetActive(true);
+                    head2.SetActive(false);
+                }
             }
 
             lastPosition = transform.position;
@@ -104,12 +122,20 @@ namespace Assets.Scripts
                 collidingObject = collision.gameObject.GetComponent<InteractableObject>();
             else if (collision.CompareTag("Floor"))
                 grounded = true;
+
+            if (collision.CompareTag("Leaf") && !grounded)
+            {
+                Debug.Log("Porfa");
+                collision.gameObject.GetComponent<LeafFall>().target = gameObject;
+            }
         }
 
         private void OnTriggerExit2D(Collider2D collision)
         {
             if (collision.CompareTag("Interactable"))
+            {
                 collidingObject = null;
+            }
             else if (collision.CompareTag("Floor"))
                 grounded = false;
         }
