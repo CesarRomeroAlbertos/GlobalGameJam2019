@@ -13,6 +13,7 @@ namespace Assets.Scripts
         public float jumpStrength;
         public float maxSpeed;
         public float maxJumpSpeed;
+        public bool end;
 
 
         InteractableObject collidingObject;
@@ -36,6 +37,7 @@ namespace Assets.Scripts
         // Start is called before the first frame update
         void Start()
         {
+            end = false;
             human = false;
             rigidBody = GetComponent<Rigidbody2D>();
             collidingObject = null;
@@ -65,7 +67,7 @@ namespace Assets.Scripts
         {
 
                 //horizontal movement
-                if (Input.GetAxis("Horizontal") != 0 && !busy)
+                if (Input.GetAxis("Horizontal") != 0 && !busy && !end)
                 {
                     if (grounded)
                     {
