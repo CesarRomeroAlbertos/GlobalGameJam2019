@@ -121,7 +121,6 @@
     <Compile Include="Assets\Scripts\River.cs" />
     <Compile Include="Assets\Scripts\SnowDrift.cs" />
     <Compile Include="Assets\Scripts\Splash.cs" />
-    <Compile Include="Assets\Scripts\StartScene.cs" />
     <Compile Include="Assets\Scripts\timePass.cs" />
     <None Include="Assets\PostProcessing\Resources\Shaders\DepthOfField.shader" />
     <None Include="Assets\PostProcessing\Resources\Shaders\MotionBlur.cginc" />
