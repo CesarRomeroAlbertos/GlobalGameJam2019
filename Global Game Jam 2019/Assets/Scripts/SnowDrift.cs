@@ -23,6 +23,7 @@ namespace Assets.Scripts.AbstractClasses
         public void Interact()
         {
             player = FindObjectOfType<Movement>();
+            player.busy = true;
             Animator anim = player.GetComponent<Animator>();
             anim.SetBool("sniff", true);
         }

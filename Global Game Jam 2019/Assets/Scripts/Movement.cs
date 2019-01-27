@@ -11,6 +11,7 @@ namespace Assets.Scripts
         public float speed;
         public float startingSpeed;
         public float jumpStrength;
+        public float maxSpeed;
 
 
         InteractableObject collidingObject;
@@ -28,6 +29,8 @@ namespace Assets.Scripts
         public GameObject head1;
         public GameObject head2;
 
+        public bool busy;
+
         // Start is called before the first frame update
         void Start()
         {
@@ -40,88 +43,108 @@ namespace Assets.Scripts
 
             head1.SetActive(true);
             head2.SetActive(false);
+
+            busy = false;
+        }
+
+        private void FixedUpdate()
+        {
+            if (Mathf.Abs(rigidBody.velocity.x) >= maxSpeed)
+            {
+                if (rigidBody.velocity.x < 0) rigidBody.velocity = new Vector2(-maxSpeed, rigidBody.velocity.y);
+                else rigidBody.velocity = new Vector2(Mathf.Lerp(maxSpeed, rigidBody.velocity.x,0.5f), rigidBody.velocity.y);
+            }
         }
 
         // Update is called once per frame
         void Update()
         {
 
-            
-            //horizontal movement
-            if (Input.GetAxis("Horizontal") != 0)
-            {
-                if (grounded)
+                //horizontal movement
+                if (Input.GetAxis("Horizontal") != 0 && !busy)
                 {
-                    if (rigidBody.velocity.x == 0)
+                    if (grounded)
                     {
-                        rigidBody.AddForce(new Vector2(rigidBody.velocity.x + startingSpeed * Input.GetAxis("Horizontal"), 0));
-                    }
-                    //transform.Translate(new Vector3(speed * Input.GetAxis("Horizontal"), 0, 0));
-                    rigidBody.AddForce(Vector2.right * speed * Input.GetAxis("Horizontal"));
-                }
-                else
-                {
-                    rigidBody.AddForce(Vector2.right * (speed/3) * Input.GetAxis("Horizontal"));
-                }
-            }
-            else
-            {
-                if (grounded)
-                {
-                    if (Mathf.Abs(rigidBody.velocity.x) > 0)
-                    {
-                        rigidBody.velocity = new Vector2(Mathf.Lerp(rigidBody.velocity.x, 0, 1 / Mathf.Abs(rigidBody.velocity.x) * 0.75f), rigidBody.velocity.y);
+                        if (rigidBody.velocity.x == 0)
+                        {
+                            rigidBody.AddForce(new Vector2(rigidBody.velocity.x + startingSpeed * Input.GetAxis("Horizontal"), 0));
+                        }
+                        //transform.Translate(new Vector3(speed * Input.GetAxis("Horizontal"), 0, 0));
+                        rigidBody.AddForce(Vector2.right * speed * Input.GetAxis("Horizontal"));
                     }
                     else
-                        rigidBody.velocity = Vector2.up * rigidBody.velocity.y;
+                    {
+                        rigidBody.AddForce(Vector2.right * (speed / 3) * Input.GetAxis("Horizontal"));
+                    }
                 }
-            }
+                else if (!busy)
+                {
+                    if (grounded)
+                    {
+                        if (Mathf.Abs(rigidBody.velocity.x) > 0)
+                        {
+                            rigidBody.velocity = new Vector2(Mathf.Lerp(rigidBody.velocity.x, 0, 1 / Mathf.Abs(rigidBody.velocity.x) * 0.75f), rigidBody.velocity.y);
+                        }
+                        else
+                            rigidBody.velocity = Vector2.up * rigidBody.velocity.y;
+                    }
+                }
 
-            //jump
-            if (Input.GetButtonDown("Jump") && grounded)
-            {
-                rigidBody.AddForce(jumpStrength * Vector2.up);
-                //grounded = false;
-            }
+                //jump
+                if (Input.GetButtonDown("Jump") && grounded && !busy)
+                {
+                    rigidBody.AddForce(jumpStrength * Vector2.up);
+                    //grounded = false;
+                }
 
-            //interaction
-            if (Input.GetButtonUp("Interact"))
-            {
-                if (collidingObject != null)
-                    collidingObject.Interact();
-            }
+                //interaction
+                if (Input.GetButtonUp("Interact") && !busy)
+                {
+                    if (collidingObject != null)
+                        collidingObject.Interact();
+                }
 
-            if(!grounded && rigidBody.velocity.y<=0)
-            {
-                rigidBody.AddForce(new Vector2(0,Physics.gravity.y * rigidBody.mass*3));
-            }
+                if (!grounded && rigidBody.velocity.y <= 0 && !busy)
+                {
+                    rigidBody.AddForce(new Vector2(0, Physics.gravity.y * rigidBody.mass * 3));
+                }
+
+                anim.SetFloat("velocity", rigidBody.velocity.x);
+                anim.SetFloat("speed", Mathf.Abs(rigidBody.velocity.x));
+                anim.SetBool("grounded", grounded);
+                anim.SetFloat("verticalSpeed", rigidBody.velocity.y);
+                if (Mathf.Abs(rigidBody.velocity.x) > 2) anim.SetBool("running", true);
+                else anim.SetBool("running", false);
+                if (Mathf.Abs(rigidBody.velocity.x) > 0.1 && !busy)
+                {
+                    GetComponent<SpriteRenderer>().flipX = rigidBody.velocity.x < 0;
+                    if (GetComponent<SpriteRenderer>().flipX)
+                    {
+                        head1.SetActive(false);
+                        head2.SetActive(true);
+                    }
+                    else
+                    {
+                        head1.SetActive(true);
+                        head2.SetActive(false);
+                    }
+                }            
 
             currentSpeed = transform.position.x - lastPosition.x;
 
-            anim.SetFloat("velocity", rigidBody.velocity.x);
-            anim.SetFloat("speed", Mathf.Abs(rigidBody.velocity.x));
-            anim.SetBool("grounded", grounded);
-            anim.SetFloat("verticalSpeed", rigidBody.velocity.y);
-            if (Mathf.Abs(rigidBody.velocity.x) > 2) anim.SetBool("running", true); 
-            else anim.SetBool("running", false);
-            if (anim.GetCurrentAnimatorStateInfo(0).IsName("Sniff")) anim.SetBool("sniff", false);
-            if (anim.GetCurrentAnimatorStateInfo(0).IsName("Hunt")) anim.SetBool("hunted", false);
-            if (Mathf.Abs(rigidBody.velocity.x) > 0.1)
+            if (anim.GetCurrentAnimatorStateInfo(0).IsName("Dig"))
             {
-                GetComponent<SpriteRenderer>().flipX = rigidBody.velocity.x < 0;
-                if (GetComponent<SpriteRenderer>().flipX)
-                {
-                    head1.SetActive(false);
-                    head2.SetActive(true);
-                }
-                else
-                {
-                    head1.SetActive(true);
-                    head2.SetActive(false);
-                }
+                anim.SetBool("sniff", false);
+                busy = false;
+            }
+            if (anim.GetCurrentAnimatorStateInfo(0).IsName("Hunt"))
+            {
+                anim.SetBool("hunted", false);
+                busy = false;
             }
 
             lastPosition = transform.position;
+            
         }
 
         /// <summary>
@@ -143,7 +166,7 @@ namespace Assets.Scripts
             else if (collision.CompareTag("Leaf") && !grounded)
             {
                 Debug.Log("Porfa");
-                collision.gameObject.GetComponent<LeafFall>().target = gameObject;
+                collision.gameObject.GetComponentInParent<LeafFall>().target = gameObject;
                 
             }
         }

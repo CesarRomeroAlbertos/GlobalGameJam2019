@@ -47,6 +47,7 @@ namespace Assets.Scripts
                 spawner.removeLeaf(gameObject);
                 Destroy(gameObject);
                 target.GetComponent<Animator>().SetBool("hunted", true);
+                target.GetComponent<Movement>().busy = true;
             }
         }
     }

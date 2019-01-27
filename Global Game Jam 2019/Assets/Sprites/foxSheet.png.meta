@@ -93,10 +93,10 @@ TextureImporter:
       name: foxSheet_0
       rect:
         serializedVersion: 2
-        x: 64
-        y: 560
-        width: 415
-        height: 265
+        x: 0
+        y: 500
+        width: 600
+        height: 500
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -104,7 +104,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: af72b03b9f5a7104ca778dc4f7cee229
+      spriteID: 1247d69999af0f5429496fcce550f586
       vertices: []
       indices: 
       edges: []
@@ -113,10 +113,10 @@ TextureImporter:
       name: foxSheet_1
       rect:
         serializedVersion: 2
-        x: 623
-        y: 556
-        width: 469
-        height: 281
+        x: 600
+        y: 500
+        width: 600
+        height: 500
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,7 +124,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 222ae29bbc978c2419c931492f6092dd
+      spriteID: 5a2592f570a88544f9817e94c371bdbe
       vertices: []
       indices: 
       edges: []
@@ -133,10 +133,10 @@ TextureImporter:
       name: foxSheet_2
       rect:
         serializedVersion: 2
-        x: 1264
-        y: 631
-        width: 442
-        height: 205
+        x: 1200
+        y: 500
+        width: 600
+        height: 500
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -144,7 +144,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6c4c0111d5c1cbe45920dbcdff4966da
+      spriteID: 71f7c54878ac527478f23bed31f8aac6
       vertices: []
       indices: 
       edges: []
@@ -153,10 +153,10 @@ TextureImporter:
       name: foxSheet_3
       rect:
         serializedVersion: 2
-        x: 84
-        y: 96
-        width: 420
-        height: 236
+        x: 0
+        y: 0
+        width: 600
+        height: 500
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -164,7 +164,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d956a87064f20b84baa868e8f8d18201
+      spriteID: 9798814bc52c73e4b87146143226852a
       vertices: []
       indices: 
       edges: []
@@ -173,10 +173,10 @@ TextureImporter:
       name: foxSheet_4
       rect:
         serializedVersion: 2
-        x: 656
-        y: 52
-        width: 454
-        height: 257
+        x: 600
+        y: 0
+        width: 600
+        height: 500
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -184,7 +184,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3d08afdab380647448c34be561c00c87
+      spriteID: 99df61de90f1e6f44bb8d661d8871338
       vertices: []
       indices: 
       edges: []
@@ -193,10 +193,10 @@ TextureImporter:
       name: foxSheet_5
       rect:
         serializedVersion: 2
-        x: 1304
-        y: 62
-        width: 421
-        height: 214
+        x: 1200
+        y: 0
+        width: 600
+        height: 500
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -204,7 +204,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 93ed409bde678624d957601b9ff7e680
+      spriteID: 8ad6cf82d69e90d46add6b5ba13a4b17
       vertices: []
       indices: 
       edges: []

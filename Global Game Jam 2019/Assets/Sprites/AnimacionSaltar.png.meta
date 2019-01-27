@@ -90,10 +90,10 @@ TextureImporter:
       name: AnimacionSaltar_0
       rect:
         serializedVersion: 2
-        x: 68
-        y: 64
-        width: 386
-        height: 399
+        x: 0
+        y: 0
+        width: 600
+        height: 500
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -101,7 +101,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 65093049327297e4cab77094003c337a
+      spriteID: 9cfa782b71c884048948cd2f4a715ca5
       vertices: []
       indices: 
       edges: []
@@ -110,10 +110,10 @@ TextureImporter:
       name: AnimacionSaltar_1
       rect:
         serializedVersion: 2
-        x: 608
-        y: 86
-        width: 489
-        height: 270
+        x: 600
+        y: 0
+        width: 600
+        height: 500
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -121,7 +121,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 39c7ca48981459f4085560b6970bf074
+      spriteID: 26c2baca749a96e4d9bd63f245af5eb2
       vertices: []
       indices: 
       edges: []
@@ -130,10 +130,10 @@ TextureImporter:
       name: AnimacionSaltar_2
       rect:
         serializedVersion: 2
-        x: 1281
-        y: 51
-        width: 460
-        height: 333
+        x: 1200
+        y: 0
+        width: 600
+        height: 500
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,7 +141,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a17005ae876463a40add3f470252ac5f
+      spriteID: e4854fa3d15ac964db50cad934090a3e
       vertices: []
       indices: 
       edges: []
