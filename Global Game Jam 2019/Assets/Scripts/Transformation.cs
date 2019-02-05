@@ -18,10 +18,11 @@ public class Transformation : MonoBehaviour
     }
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("player"))
+        if (collision.CompareTag("Player"))
         {
-            collision.GetComponent<Animator>().SetTrigger("Human");
+            collision.GetComponent<Animator>().SetTrigger("human");
             collision.GetComponent<Movement>().human = true;
+            collision.GetComponent<Movement>().speed = collision.GetComponent<Movement>().speed / 2.5f;
         }
 
     }
