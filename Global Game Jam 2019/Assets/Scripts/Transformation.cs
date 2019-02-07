@@ -22,7 +22,8 @@ public class Transformation : MonoBehaviour
         {
             collision.GetComponent<Animator>().SetTrigger("human");
             collision.GetComponent<Movement>().human = true;
-            collision.GetComponent<Movement>().speed = collision.GetComponent<Movement>().speed / 2.5f;
+            collision.GetComponent<Movement>().GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            collision.GetComponent<Movement>().speed = collision.GetComponent<Movement>().speed / 1.25f;
         }
 
     }

@@ -7,12 +7,14 @@ using UnityEngine.SceneManagement;
 public class end : MonoBehaviour
 {
     bool ending;
+    bool fade;
     float startTime;
 
     // Start is called before the first frame update
     void Start()
     {
         ending = false;
+        fade = false;
         startTime = 0;
     }
 
@@ -25,7 +27,13 @@ public class end : MonoBehaviour
         }
         else if (ending)
         {
-            if(Time.time-startTime > 5)
+            if (Time.time - startTime > 3 && !fade)
+            {
+                FindObjectOfType<Fade>().end = true;
+                FindObjectOfType<Fade>().endTime = Time.time;
+                fade = true;
+            }
+            if (Time.time-startTime > 5)
             {
                 SceneManager.LoadScene(0, LoadSceneMode.Single);
             }
